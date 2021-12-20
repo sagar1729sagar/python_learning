@@ -1,9 +1,13 @@
+import sqlite3
 books_file = 'books.txt'
 
 
 def create_book_table():
-    with open(books_file, 'w') as file:
-        pass  # just to make sure the file is there
+    connection = sqlite3.connect('data.db')
+    cursor = connection.cursor()
+    cursor.execute('CREATE TABLE IF NOT EXISTS books(name TEXT PRIMARY KEY , author TEXT, read INTEGER)')
+    connection.commit()
+    connection.close()
 
 
 def get_all_books():
@@ -17,8 +21,11 @@ def get_all_books():
 
 
 def add_book(name, author):
-    with open(books_file, 'a') as file:
-        file.write(f'{name},{author},0\n')
+    connection = sqlite3.connect('data.db')
+    cursor = connection.cursor()
+    cursor.execute('INSERT INTO books VALUES (?,?,0)', (name, author))
+    connection.commit()
+    connection.close()
 
 
 def _save_all_books(books):
