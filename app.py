@@ -37,8 +37,8 @@ def prompt_add_book():
 
 def list_books():
     for book in database.get_all_books():
-        read = 'YES' if book['read'] == '1' else 'NO'
-        print(f"{book['name']} by {book['author']} — Read: {read}")
+        read = 'YES' if book[2] == 1 else 'NO'
+        print(f"{book[0]} by {book[1]} — Read: {read}")
 
 
 def prompt_read_book():
