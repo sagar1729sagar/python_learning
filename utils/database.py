@@ -1,8 +1,11 @@
+from typing import List, Union
+
 from utils.database_connection import DatabaseConnection
 books_file = 'books.txt'
+Book = Union[str, int]
 
 
-def create_book_table():
+def create_book_table() -> None:
     # connection = sqlite3.connect('data.db')
     with DatabaseConnection('data.db') as connection:
         cursor = connection.cursor()
@@ -11,7 +14,7 @@ def create_book_table():
     # connection.close()
 
 
-def get_all_books():
+def get_all_books() -> List[tuple(str, str, bool)]:
     # connection = sqlite3.connect('data.db')
     with DatabaseConnection('data.db') as connection:
         cursor = connection.cursor()
@@ -23,7 +26,7 @@ def get_all_books():
     return books
 
 
-def add_book(name, author):
+def add_book(name: Book, author: str) -> None:
     # connection = sqlite3.connect('data.db')
 
     with DatabaseConnection('data.db') as connection:
@@ -33,13 +36,13 @@ def add_book(name, author):
     # connection.close()
 
 
-def _save_all_books(books):
+def _save_all_books(books) -> None:
     with open(books_file, 'w') as file:
         for book in books:
             file.write(f"{book['name']},{book['author']},{book['read']}\n")
 
 
-def mark_book_as_read(name):
+def mark_book_as_read(name: Book) -> None:
     # connection = sqlite3.connect('data.db')
     with DatabaseConnection('data.db') as connection:
         cursor = connection.cursor()
@@ -49,7 +52,7 @@ def mark_book_as_read(name):
     # connection.close()
 
 
-def delete_book(name):
+def delete_book(name: Book) -> None:
     # connection = sqlite3.connect('data.db')
     with DatabaseConnection('data.db') as connection:
         cursor = connection.cursor()
