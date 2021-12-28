@@ -14,7 +14,7 @@ def create_book_table() -> None:
     # connection.close()
 
 
-def get_all_books() -> List[tuple(str, str, bool)]:
+def get_all_books() -> List[tuple()]:
     # connection = sqlite3.connect('data.db')
     with DatabaseConnection('data.db') as connection:
         cursor = connection.cursor()
