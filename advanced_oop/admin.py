@@ -2,7 +2,7 @@ from advanced_oop.user import User
 from advanced_oop.savable import Savable
 
 
-class Admin(User,Savable):
+class Admin(User):
     def __init__(self, username, password, access):
         super(Admin, self).__init__(username, password)
         self.access = access
