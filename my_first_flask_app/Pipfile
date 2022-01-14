@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = false
+name = "pypi"
+
+[[source]]
+url = "https://pypi.org"
+verify_ssl = false
+name = "pypi"
+
+[[source]]
+url = "https://files.pythonhosted.org"
+verify_ssl = false
+name = "pypi"
+
+[packages]
+flask = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

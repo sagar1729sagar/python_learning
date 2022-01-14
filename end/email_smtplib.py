@@ -7,7 +7,7 @@ email = EmailMessage()
 email['Subject'] = 'Test email'
 email['From'] = 'you@gmail.com'
 email['To'] = 'someoneelse@gmail.com'
-email.set_content("This is an email sent fro python code")
+email.set_content("This is an email sent from python code")
 
 smtp_connector = smtplib.SMTP(host='smtp.gmail.com', port=587)
 smtp_connector.starttls()
